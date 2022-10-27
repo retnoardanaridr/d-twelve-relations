@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Blog Detail</title>
+        <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+        <link rel="stylesheet" href="/public/css/style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+            <a class="navbar-brand ms-4" href="/"><img src="/public/image/logo.png" alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active fw-bold" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active fw-bold" href="/add-project">Add Project</a>
+                </li>
+                </ul>
+                <form class="d-flex" role="search">
+                <a class="btn btn-outline-success bg-dark text-white me-5" href="/contact">Contact Me</a>
+                </form>
+            </div>
+            </div>
+        </nav>
+        
+        <section class="main mt-2 px-2 px-lg-0 d-flex justify-content-center fs-5">
+            <div class="container-lg px-0">
+                <div class="judul row justify-content-center">
+                    <h1 class="text-center fw_black mb-3 fs-2">{{.Project.ProjectName}}</h1>
+                </div>
+                <div class="projectMetas row justify-content-between mb-5">
+                    <div class="hero-img col-md-7 col-xl-6">
+                        <img class="w-100" src="/uploads/{{.Project.Image}}">
+                    </div>
+                    <div class="projectInfo col-md-5 col-xl-5 mt-xl-2">
+                        <div class="duration">
+                            <h3 class="fs mb-3 mb-lg-4">Duration</h3>
+                            <div class="startEndDate d-flex justify-content-start mb-3 mb-xl-4" style="height: 50px;">
+                                <p class="d-flex align-items-center h-100">{{.Project.StartDate}}</p>
+                                <p>{{.Project.EndDate}}</p>
+                            </div>
+                            <div class="durationInfo d-flex justify-content-start mb-3 mb-lg-4" style="height: 50px;">
+                                <p class="d-flex align-items-center h-100">{{.Project.Duration}}</p>
+                            </div>
+                        </div>
+                        <div class="techno">
+                            <h3 class="mb-3">Technology</h3>
+                            <div class="techGrid row">
+                                <div class="node col-5 d-flex justify-content-start mb-3" style="height: 50px;">
+                                    <img class="h-100" src="/public/image/NodeJS.png">
+                                    <p class="d-flex align-items-center h-100">Node Js</p>
+                                </div>
+                                <div class="vue col-6 d-flex justify-content-start mb-3" style="height: 50px;">
+                                    <img class="h-100" src="/public/image/next-js.png">
+                                    <p class="d-flex align-items-center h-100">Next Js</p>
+                                </div>
+                                <div class="react col-5 d-flex justify-content-start mb-3" style="height: 50px;">
+                                    <img class="h-100" src="/public/image/react.png">
+                                    <p class="d-flex align-items-center h-100">React Js</p>
+                                </div>
+                                <div class="typeScript col-6 d-flex justify-content-start mb-3" style="height: 50px;">
+                                    <img class="h-100" src="/public/image/Typescript.png">
+                                    <p class="d-flex align-items-center h-100">TypeScript</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="projectContents text-justify mb-5">
+                    <p>
+                        {{.Project.Description}}
+                    </p>
+                </div>       
+            </div> 
+        </section>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    </body>
+</html>
