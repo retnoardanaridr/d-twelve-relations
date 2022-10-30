@@ -40,34 +40,19 @@
                     </div>
                     <div class="projectInfo col-md-5 col-xl-5 mt-xl-2">
                         <div class="duration">
-                            <h3 class="fs mb-3 mb-lg-4">Duration</h3>
+                            <h3 class="fs mb-3 mb-lg-4">Time</h3>
                             <div class="startEndDate d-flex justify-content-start mb-3 mb-xl-4" style="height: 50px;">
                                 <p class="d-flex align-items-center h-100">{{.Project.StartDate}}</p>
                                 <p>{{.Project.EndDate}}</p>
                             </div>
                             <div class="durationInfo d-flex justify-content-start mb-3 mb-lg-4" style="height: 50px;">
-                                <p class="d-flex align-items-center h-100">{{.Project.Duration}}</p>
+                                <p class="d-flex align-items-center h-100">Duration : {{.Project.Duration}}</p>
                             </div>
                         </div>
                         <div class="techno">
                             <h3 class="mb-3">Technology</h3>
                             <div class="techGrid row">
-                                <div class="node col-5 d-flex justify-content-start mb-3" style="height: 50px;">
-                                    <img class="h-100" src="/public/image/NodeJS.png">
-                                    <p class="d-flex align-items-center h-100">Node Js</p>
-                                </div>
-                                <div class="vue col-6 d-flex justify-content-start mb-3" style="height: 50px;">
-                                    <img class="h-100" src="/public/image/next-js.png">
-                                    <p class="d-flex align-items-center h-100">Next Js</p>
-                                </div>
-                                <div class="react col-5 d-flex justify-content-start mb-3" style="height: 50px;">
-                                    <img class="h-100" src="/public/image/react.png">
-                                    <p class="d-flex align-items-center h-100">React Js</p>
-                                </div>
-                                <div class="typeScript col-6 d-flex justify-content-start mb-3" style="height: 50px;">
-                                    <img class="h-100" src="/public/image/Typescript.png">
-                                    <p class="d-flex align-items-center h-100">TypeScript</p>
-                                </div>
+                                <p>{{.Project.Technologies}}</p>
                             </div>
                         </div>
                     </div>

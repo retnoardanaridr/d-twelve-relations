@@ -203,8 +203,8 @@ func blogDetail(w http.ResponseWriter, r *http.Request) {
 
 	var BlogDetail = Project{}
 
-	err = connection.Conn.QueryRow(context.Background(), "SELECT id, project_name, start_date, end_date, description, technologies, image FROM tb_projects WHERE id=$1", id).Scan(
-		&BlogDetail.Id, &BlogDetail.ProjectName, &BlogDetail.StartDate, &BlogDetail.EndDate, &BlogDetail.Description, &BlogDetail.Technologies, &BlogDetail.Image,
+	err = connection.Conn.QueryRow(context.Background(), "SELECT id, project_name, start_date, end_date, duration, description, technologies, image FROM tb_projects WHERE id=$1", id).Scan(
+		&BlogDetail.Id, &BlogDetail.ProjectName, &BlogDetail.StartDate, &BlogDetail.EndDate, &BlogDetail.Duration, &BlogDetail.Description, &BlogDetail.Technologies, &BlogDetail.Image,
 	)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
@@ -215,8 +215,6 @@ func blogDetail(w http.ResponseWriter, r *http.Request) {
 	data := map[string]interface{}{
 		"Project": BlogDetail,
 	}
-
-	fmt.Println(data)
 
 	w.WriteHeader(http.StatusOK)
 	tmpl.Execute(w, data)
@@ -300,7 +298,7 @@ func editProject(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Message : " + err.Error()))
 	}
 
-	id, _ := strconv.Atoi((mux.Vars(r)["id"]))
+	id, _ := strconv.Atoi((mux.Vars(r)["id"])) //take id
 
 	var update = Project{}
 
@@ -312,10 +310,6 @@ func editProject(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("message : " + err.Error()))
 		return
 	}
-
-	update.sFormat = update.StartDate.Format("2006-01-02")
-	update.enFormat = update.EndDate.Format("2006-01-02")
-	fmt.Println(update.sFormat)
 
 	response := map[string]interface{}{
 		"ProjectData": update,
@@ -438,7 +432,6 @@ func formLogin(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	Data.FlashData = strings.Join(flashes, "")
-	fmt.Println(Data.FlashData)
 
 	response := map[string]interface{}{
 		"DataSession": Data,
@@ -487,7 +480,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 
 	session.Values["IsLogin"] = true
 	session.Values["Name"] = user.Name
-	session.Values["Email"] = user.Email // baru tak tambahin
+	session.Values["Email"] = user.Email
 	session.Values["ID"] = user.Id
 	session.Options.MaxAge = 10800 //lama waktu login 3 hour
 

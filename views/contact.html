@@ -15,9 +15,11 @@
                   <li class="nav-item">
                     <a class="nav-link active fw-bold" aria-current="page" href="/">Home</a>
                   </li>
+                  {{if .Data.IsLogin}}
                   <li class="nav-item">
                     <a class="nav-link active fw-bold" href="/add-project">Add Project</a>
                   </li>
+                  {{end}}
                 </ul>
                 <form class="d-flex" role="search">
                   <a class="btn btn-outline-success bg-dark text-white me-5" href="/contact">Contact Me</a>

@@ -16,9 +16,11 @@
                   <li class="nav-item">
                     <a class="nav-link active fw-bold" aria-current="page" href="/">Home</a>
                   </li>
+                  {{if .Data.IsLogin}}
                   <li class="nav-item">
                     <a class="nav-link active fw-bold" href="/add-project">Add Project</a>
                   </li>
+                  {{end}}
                 </ul>
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
